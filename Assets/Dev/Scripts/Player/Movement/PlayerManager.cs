@@ -5,39 +5,39 @@ namespace Simulator.Player
 {
     public class PlayerManager : MonoBehaviour
     {
-        private Vector2 _horizontalInput;
-        private Vector3 _verticalVelocity;
-        private bool _isJump;
-        private bool _isGrounded;
+        internal Vector2 horizontalInput;
+        internal Vector3 verticalVelocity;
+        internal bool isJump;
+        internal bool isGrounded;
         
-        [SerializeField] private CharacterController characterController;
-        [SerializeField] private float movementSpeed;
-        [SerializeField] private float jumpHeight;
-        [SerializeField] private float gravity = -30f;
-        [SerializeField] private LayerMask groundMask;
+        public CharacterController characterController;
+        public float movementSpeed;
+        public float jumpHeight;
+        public float gravity = -30f;
+        public LayerMask groundMask;
 
         private void Update()
         {
-            _isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
-            if (_isGrounded) _verticalVelocity.y = 0;
-
-            Vector3 horizontalVelocity =
-                (transform.right * _horizontalInput.x + transform.forward * _horizontalInput.y) * movementSpeed;
-
-            characterController.Move(horizontalVelocity * Time.deltaTime);
-
-            if (_isJump)
-            {
-                if (_isGrounded)
-                {
-                    _verticalVelocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
-                }
-
-                _isJump = false;
-            }
-
-            _verticalVelocity.y += gravity * Time.deltaTime;
-            characterController.Move(_verticalVelocity * Time.deltaTime);
+            // _isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
+            // if (_isGrounded) _verticalVelocity.y = 0;
+            //
+            // Vector3 horizontalVelocity =
+            //     (transform.right * _horizontalInput.x + transform.forward * _horizontalInput.y) * movementSpeed;
+            //
+            // characterController.Move(horizontalVelocity * Time.deltaTime);
+            //
+            // if (_isJump)
+            // {
+            //     if (_isGrounded)
+            //     {
+            //         _verticalVelocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
+            //     }
+            //
+            //     _isJump = false;
+            // }
+            //
+            // _verticalVelocity.y += gravity * Time.deltaTime;
+            // characterController.Move(_verticalVelocity * Time.deltaTime);
         }
 
         internal void OnInteractionPressed()
@@ -48,7 +48,7 @@ namespace Simulator.Player
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                IInteractable hitInteractable = hit.collider.GetComponent<IInteractable>();
+                Interactable hitInteractable = hit.collider.GetComponent<Interactable>();
                 
                 if(hitInteractable == null) return;
                 hitInteractable.OnClickEvent();
@@ -57,12 +57,12 @@ namespace Simulator.Player
         
         internal void OnJumpPressed()
         {
-            _isJump = true;
+            isJump = true;
         }
 
         internal void ReceiveInput(Vector2 horizontalInput)
         {
-            _horizontalInput = horizontalInput;
+            this.horizontalInput = horizontalInput;
         }
     }
 }

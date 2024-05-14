@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b8b587984e1ade048a7152ff467510e2, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 1699558120}
   - component: {fileID: 1699558119}
   - component: {fileID: 1699558118}
-  - component: {fileID: 1699558117}
+  - component: {fileID: 1699558122}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -899,18 +899,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1699558117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699558116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d63ce4b9fdc84e479d91d4e42202ebcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1699558118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -997,6 +985,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699558122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699558116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63ce4b9fdc84e479d91d4e42202ebcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asd: {fileID: 212750822}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
